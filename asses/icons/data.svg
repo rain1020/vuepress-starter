@@ -1,0 +1,13 @@
+<svg width="96px" height="50px" viewBox="0 0 96 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>数据</title>
+    <g id="-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="15厂站信息" transform="translate(-463.000000, -366.000000)">
+            <g id="数据" transform="translate(463.000000, 366.000000)">
+                <path d="M4,11 L14,11 C16.209139,11 18,12.790861 18,15 L18,50 L18,50 L0,50 L0,15 C-2.705415e-16,12.790861 1.790861,11 4,11 Z" id="Bar" fill="#EBF0FA"></path>
+                <path d="M30,29 L40,29 C42.209139,29 44,30.790861 44,33 L44,50 L44,50 L26,50 L26,33 C26,30.790861 27.790861,29 30,29 Z" id="Bar" fill="#EBF0FA"></path>
+                <path d="M56,0 L66,0 C68.209139,-4.05812251e-16 70,1.790861 70,4 L70,50 L70,50 L52,50 L52,4 C52,1.790861 53.790861,-9.26455379e-16 56,0 Z" id="Bar" fill="#3D83FF"></path>
+                <path d="M82,17 L92,17 C94.209139,17 96,18.790861 96,21 L96,50 L96,50 L78,50 L78,21 C78,18.790861 79.790861,17 82,17 Z" id="Bar" fill="#EBF0FA"></path>
+            </g>
+        </g>
+    </g>
+</svg>
