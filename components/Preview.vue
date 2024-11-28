@@ -27,7 +27,7 @@ const previewXMind = (content: ArrayBuffer) => {
 }
 
 const destroyViewer = () => {
-    if (viewer) {
+    if (viewer && viewer.destroy) {
         viewer.destroy();
         viewer = null;
     }
