@@ -1,0 +1,51 @@
+// 单行文本省略
+@mixin single-line-ellipsis($width){
+    width: $width; /* 限制容器宽度 */
+    white-space: nowrap; /* 禁止文本换行 */
+    overflow: hidden; /* 隐藏超出范围的内容 */
+    text-overflow: ellipsis; /* 使用省略号 */
+  }
+// 多行文本省略
+  @mixin multi-line-ellipsis($width) {
+    width: $width; /* 限制容器宽度 */
+    display: -webkit-box; /* 设置为WebKit内核的弹性盒子模型 */
+    -webkit-box-orient: vertical; /* 垂直排列 */
+    -webkit-line-clamp: 3; /* 限制显示三行 */
+    overflow: hidden; /* 隐藏超出范围的内容 */
+    text-overflow: ellipsis; /* 使用省略号 */
+  }
+// 文本居中
+  .text-center {
+    text-align: center;
+  }
+// 隐藏
+  .hidden {
+    display: none;
+  }
+// 浮动
+.fl {
+    float: left;
+  }
+  .fr {
+    float: right;
+  }
+  /* 居中 */
+.centerXY {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+/* 向左向右 */
+.betweenX {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  /* 向上向下 */
+  .betweenY {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
