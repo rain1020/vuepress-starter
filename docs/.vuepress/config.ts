@@ -123,16 +123,18 @@ export default defineUserConfig({
           let absolutePath = path.resolve(mdDirPath, filePath);
           let rs = fs.createReadStream(absolutePath, { encoding: 'utf-8' });
           let index;
+          let start;
           let pos = 0;
           let acc = '';
           rs.on('data', function (chunck) {
-            index = chunck.indexOf('\n');
+            start = chunck.indexOf('#');
+            index = chunck.slice(start).indexOf('\n');
             acc += chunck;
             index !== -1 ? rs.close() : (pos += chunck.length);
           })
             .on('close', function () {
               titleArr.push({
-                text: acc.slice(2, pos + index),
+                text: acc.slice(start + 2, start + index),
                 link: `../${filePath}`,
               });
             })

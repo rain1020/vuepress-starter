@@ -1,6 +1,10 @@
-# 设计海报
+---
+sidebar: false
+layout: CustomLayout
+next: true
+---
 
-<DesignDemo />
+# 设计海报
 
 ::: details 点击查看代码
 @[code vue](../demo/DesignDemo.vue)

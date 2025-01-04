@@ -30,6 +30,22 @@ export interface Page {
   json?: any;
   children: any;
 }
+
+type ObjectType =
+  // 官方元素tag
+  | 'UI'
+  | 'App'
+  | 'Leafer'
+  | 'Frame'
+  | 'Group'
+  | 'Box'
+  | 'Rect'
+  | 'Image'
+  | 'SVG'
+  | 'Canvas'
+  | 'Text'
+  | 'Pen'
+  | 'HTMLText';
 export class LeaferCanvas {
   // 主应用
   private _app?: App;
@@ -48,10 +64,10 @@ export class LeaferCanvas {
   // 标尺
   public ruler: Ruler;
 
-  constructor() {
+  constructor({ width, height }: { width: number; height: number }) {
     const app = new App({
-      width: 400,
-      height: 800,
+      width: width,
+      height: height,
       editor: {},
     });
     this.wrapperEl = app.canvas.view;
@@ -74,6 +90,22 @@ export class LeaferCanvas {
     });
     this.contentLayer.add(frame);
     this.contentFrame = frame;
+  }
+
+  public objectIsTypes(object: any, ...types: ObjectType[]) {
+    return types.includes(<ObjectType>object?.tag);
+  }
+
+  /**
+   * 添加元素
+   * @param child 元素
+   * @param index 层级
+   */
+  public add(child: IUI, index?: number) {
+    this.contentFrame.add(child, index);
+
+    // 选中提添加的元素
+    this.setActiveObjects([child]);
   }
   /**
    * 选中元素

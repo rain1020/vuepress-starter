@@ -422,6 +422,7 @@
                     "draggable": true,
                     "editable": true,
                     "hitChildren": false,
+                    "name": "组合1",
                     "children": [
                         {
                             "tag": "Text",

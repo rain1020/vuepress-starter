@@ -2,52 +2,65 @@
     <div class="design-left">
         <div class="design-left-ul">
             <div v-for="(item, index) in widgetClassifyList">
-                <span class="design-left-ul_name" :class="[activity === index ? 'red' : '']"
-                    @click="onClassify(index)">{{
+                <span class="design-left-ul_name" :class="[activity === item.key ? 'red' : '']"
+                    @click="onClassify(item.key)">{{
                         item.name }}</span>
             </div>
         </div>
-        <div class="design-left-activity" v-show="activity >= 0">
-            <component v-if="widgetClassifyList[activity]" :is="widgetClassifyList[activity].component"
-                @onPage="onPage"></component>
+        <div class="design-left-activity" v-show="activity">
+            <component v-if="activity" :is="currentClassify?.component" @onPage="onPage"></component>
         </div>
     </div>
 </template>
 <script setup lang="ts">
-import { ref, unref } from 'vue'
+import { computed, ref, unref } from 'vue'
 import TempListWrap from './TempListWrap.vue'
+import TextListWrap from './TextListWrap.vue'
 import { Page } from './designComponent/class/LeaferCanvas';
-const emit = defineEmits(['onPage'])
+import { nextTick } from 'process';
+const emit = defineEmits(['onPage', 'onClassify'])
 
 const widgetClassifyList = ref([
     {
         name: '模版',
+        key: 'tem',
         component: TempListWrap,
-    }
+    },
+    {
+        name: '文字',
+        key: 'text',
+        component: TextListWrap,
+    },
 ])
-let activity = ref(-1)
-const onClassify = (index) => {
-    if (unref(activity) === index) {
-        activity.value = -1
-        return
+let activity = ref('')
+const currentClassify = computed(() => {
+    return unref(widgetClassifyList).find(item => item.key === unref(activity))
+})
+const onClassify = (key: string) => {
+    if (unref(activity) === key) {
+        activity.value = ''
+    } else {
+        activity.value = key
     }
-    activity.value = index
+    emit('onClassify', key)
 }
 const onPage = (page: Partial<Page>) => {
-    emit('onPage', page)
+    emit('onPage', page, activity.value)
 }
 </script>
 <style lang="scss" scoped>
 .design-left {
     display: flex;
-    padding-top: 10px;
     height: 100%;
     box-sizing: border-box;
 
     &-ul {
+        box-sizing: border-box;
+        padding-top: 10px;
         width: 40px;
         list-style: none;
         text-align: center;
+        border-right: 1px solid rgba(0, 0, 0, .07);
 
         &_name {
             padding: 8px 0px;
@@ -56,12 +69,14 @@ const onPage = (page: Partial<Page>) => {
             cursor: pointer;
 
             &.red {
-                color: brown;
+                color: rgb(22, 93, 255);
             }
         }
     }
 
     &-activity {
+        box-sizing: border-box;
+        padding-top: 10px;
         background-color: antiquewhite;
         width: 200px;
         height: 100%;
