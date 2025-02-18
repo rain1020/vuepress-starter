@@ -2,7 +2,7 @@
     <div class="form-ele-items">
         <div v-for="(groupInfo, index) in formElesGroup" :key="index" class="form-ele-item">
             <h5 class="form-ele-item-title">{{ groupInfo.name }}</h5>
-            <Flexbox class="form-ele-item-content" :ref="(proxy) => setGroupRef(groupInfo, proxy.$el)">
+            <Flexbox class="form-ele-item-content" :ref="(proxy) => setGroupRef(groupInfo, proxy?.$el)">
                 <el-button class="button" v-for="(eleItem, index) in groupInfo.groupEleItems"
                     :data-groupInfo="JSON.stringify(groupInfo)" :data-eleItem="JSON.stringify(eleItem)">
                     {{ eleItem.name }}
