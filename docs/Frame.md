@@ -8,3 +8,7 @@
 ::: details 点击查看代码
 @[code js](../demo/FrameDemo1.vue)
 :::
+<FrameDemo2 />
+::: details 点击查看代码
+@[code js](../demo/FrameDemo2.vue)
+:::
