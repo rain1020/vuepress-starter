@@ -28,6 +28,7 @@
     "moment": "^2.29.4",
     "pdfjs-dist": "^4.8.69",
     "sortablejs": "^1.15.6",
+    "three": "^0.173.0",
     "uuid": "^9.0.1",
     "vue-waterfall-plugin": "^3.3.2",
     "xmind-embed-viewer": "^1.2.0"
