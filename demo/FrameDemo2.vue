@@ -9,7 +9,7 @@ $b: 6px; // border-width
 $r: 2em; // blur radius
 
 .card {
-    background-color: #222;
+    background: #212121;
     max-width: 100%;
     position: relative;
     aspect-ratio: 5 / 2;
@@ -33,6 +33,10 @@ $r: 2em; // blur radius
         pointer-events: none;
         animation: α 4s linear infinite;
 
+    }
+
+    &::after {
+        filter: blur($r)
     }
 }
 
