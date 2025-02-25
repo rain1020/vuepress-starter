@@ -48,15 +48,12 @@ const parseColorToRGB = (color) => {
 }
 const getQuickContrastColor = (bgColor) => {
     const rgb = parseColorToRGB(bgColor);
-    console.log('rgb', rgb);
-
     if (!rgb) return '#000000';
 
     // 简化亮度计算（加权平均）
     const brightness = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
     return brightness > 128 ? '#000000' : '#ffffff';
 }
-console.log(getQuickContrastColor('#21a675'));
 
 </script>
 <style lang="scss" scoped>

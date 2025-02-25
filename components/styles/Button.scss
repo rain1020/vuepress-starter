@@ -1,0 +1,12 @@
+.button-base {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: inherit;
+    text-align: center;
+    &:hover {
+    }
+    &:active {
+    }
+}

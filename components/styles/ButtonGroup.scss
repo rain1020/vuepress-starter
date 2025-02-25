@@ -1,0 +1,25 @@
+.button-group-base {
+    position: relative;
+    display: flex;
+    min-height: 10px;
+    flex-direction: row;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 0.2em;
+    // >:first-child{
+    //     border-top-left-radius: 0.9em;
+    //     border-bottom-left-radius: 0.9em;
+    // }
+    // >:last-child {
+    //     border-top-right-radius: 0.9em;
+    //     border-bottom-right-radius: 0.9em;
+    // }
+    &.activity{}
+    &.disabled {
+        cursor: not-allowed;
+    }
+    &.loading{
+        
+    }
+}
